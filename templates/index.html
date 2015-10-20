@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 text-center col-md-offset-2">
+                    <h1 class="text-center">Выберите СУБД</h1>
+                    % for db in dbs:
+                        <a class="btn btn-default" href="/query/select/{{db}}" role="button">
+                            <h2>{{dbs[db]['name']}}</h2> адрес сервера - {{credentials[db]['host']}},
+                            порт - {{credentials[db]['port']}}.
+                        </a>
+                    % end
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

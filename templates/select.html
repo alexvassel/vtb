@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <br/>
+        <a href="/">Главная</a>
+        <h1 class="text-center">СУБД — {{dbs[db_name]['name']}}</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Электронная почта</th>
+                    <th>Телефон</th>
+                    <th>День рождения</th>
+                    <th>Редактирование</th>
+                </tr>
+            </thead>
+            % for user in users:
+                <tr>
+                    <td>
+                         %if user[1]:
+                            {{user[1]}}
+                         %end
+                    </td>
+                    <td>
+                         %if user[2]:
+                            {{user[2]}}
+                         %end
+                    </td>
+                    <td>
+                         %if user[3]:
+                            {{user[3]}}
+                         %end
+                    </td>
+                    <td>
+                         %if user[4]:
+                            {{user[4]}}
+                         %end
+                    </td>
+                    <td>
+                         %if user[5]:
+                            {{user[5]}}
+                         %end
+                    </td>
+                    <td><a href="/query/delete/{{db_name}}/{{user[0]}}/">Удалить</a></td>
+                </tr>
+            % end
+        </table>
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="text-center">Добавить пользователя</h2>
+                <form method="POST" action="/query/insert/{{db_name}}">
+                    <div class="form-group">{{! form.name.label }}: {{! form.name(class_="form-control") }}</div>
+                    <div class="form-group">{{! form.surname.label }}: {{! form.surname(class_="form-control") }}</div>
+                    <div class="form-group">{{! form.email.label }}: {{! form.email(class_="form-control") }}</div>
+                    <div class="form-group">{{! form.phone.label }}: {{! form.phone(class_="form-control") }}</div>
+                    <div class="form-group">{{! form.birthday.label }}: {{! form.birthday(class_="form-control") }}</div>
+                    <button type="submit" class="btn btn-default">Добавить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
