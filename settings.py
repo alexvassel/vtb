@@ -6,7 +6,7 @@ os.environ['NLS_LANG'] = '_.AL32UTF8'
 
 CREDENTIALS = {'common': dict(table_name='users'),
                'mssql': dict(host='__mssql_ip__', port='1433', db_name='vtb',
-                             username='vtb_demo', password='vtb_demo'),
+                             username='vtb_demo', password='P@ssw0rd'),
                'oracle': dict(host='__oracle_ip__', port='1521', db_name='XE',
                               username='vtb_demo', password='vtb_demo')}
 

@@ -6,6 +6,7 @@ from forms import UserForm
 import helpers
 import settings
 
+
 @route('/query/select/<db_name>')
 def select(db_name):
     database = helpers.Connection(db_name)
